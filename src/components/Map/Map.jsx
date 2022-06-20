@@ -2,7 +2,7 @@ import React from 'react'
 
 const Map = () => {
   return (
-    <h1>Header</h1>
+    <h1>Map</h1>
   );
 }
 
