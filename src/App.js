@@ -12,6 +12,12 @@ const App = () => {
 
   const [coordinates, setCoordinates] = useState({lat:0, lng:0});
   const [bounds, setBounds] = useState(null);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude}}) => {
+      setCoordinates({lat: latitude, lng: longitude });
+    })
+  },[]);
   
 
   useEffect(() => {
@@ -23,7 +29,7 @@ const App = () => {
 
       setPlaces(data);
     })
-  }, []);
+  }, [coordinates, bounds]);
   return (
     <>
         <CssBaseline />
